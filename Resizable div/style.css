@@ -1,0 +1,39 @@
+.item {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    background: #ca3e47;
+}
+
+.resizer {
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+    background-color: black;
+    z-index: 2;
+}
+
+.resizer .nw{
+    top:-1px;
+    left: -1px;
+    cursor: nw-resize;
+}
+
+.resizer .ne{
+    top:-1px;
+    right: -1px;
+    cursor: ne-resize;
+}
+
+.resizer .sw{
+    bottom:-1px;
+    left: -1px;
+    cursor: sw-resize;
+}
+
+.resizer .se{
+    bottom:-1px;
+    right: -1px;
+    cursor: se-resize;
+}
