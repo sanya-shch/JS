@@ -1,13 +1,48 @@
 const el = document.querySelector(".item");
 
+let isResizing = false;
+
+el.addEventListener("mousedown", mousedown);
+
+function mousedown(e) {
+    window.addEventListener("mousemove", mousemove);
+    window.addEventListener("mouseup", mouseup);
+
+    let prevX = e.clientX;
+    let prevY = e.clientY;
+
+    function mousemove(e) {
+        if (!isResizing) {
+            let newX = prevX - e.clientX;
+            let newY = prevY - e.clientY;
+
+            const rect = el.getBoundingClientRect();
+
+            el.style.left = rect.left - newX + "px";
+            el.style.top = rect.top - newY + "px";
+
+            prevX = e.clientX;
+            prevY = e.clientY;
+        }
+    }
+
+    function mouseup() {
+        window.removeEventListener("mousemove", mousemove);
+        window.removeEventListener("mouseup", mouseup);
+    }
+}
+
+
+
 const resizers = document.querySelectorAll(".resizer");
 let currentResizer;
 
 for (let resizer of resizers) {
-    resizer.addEventListener("mousedown", mousedown);
+    resizer.addEventListener("mousedown", mousedownR);
 
-    function mousedown(e) {
+    function mousedownR(e) {
         currentResizer = e.target;
+        isResizing = true;
 
         let prevX = e.clientX;
         let prevY = e.clientY;
@@ -43,6 +78,7 @@ for (let resizer of resizers) {
         function mouseup() {
             window.removeEventListener("mousemove", mousemove);
             window.removeEventListener("mouseup", mouseup);
+            isResizing = false;
         }
     }
 }
