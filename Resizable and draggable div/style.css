@@ -14,25 +14,25 @@
     z-index: 2;
 }
 
-.resizer .nw{
+.resizer.nw{
     top:-1px;
     left: -1px;
     cursor: nw-resize;
 }
 
-.resizer .ne{
+.resizer.ne{
     top:-1px;
     right: -1px;
     cursor: ne-resize;
 }
 
-.resizer .sw{
+.resizer.sw{
     bottom:-1px;
     left: -1px;
     cursor: sw-resize;
 }
 
-.resizer .se{
+.resizer.se{
     bottom:-1px;
     right: -1px;
     cursor: se-resize;
